@@ -1,0 +1,10 @@
+check process chimangodaemon with pidfile /var/run/chimangodaemon/chimangodaemon.pid
+    start program = "/etc/init.d/chimangodaemon start"
+    stop program  = "/etc/init.d/chimangodaemon stop"
+    if cpu > 60% for 2 cycles then alert
+    if cpu > 96% for 5 cycles then restart
+    if failed port 8080
+       with timeout 6 seconds
+       then restart
+    if 4 restarts within 20 cycles then timeout
+    group mongodb
