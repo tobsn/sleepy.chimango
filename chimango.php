@@ -55,7 +55,7 @@ System_Daemon::setSigHandler( SIGTERM, 'sigterm' );
 function sigterm( $signal ){ if( $signal === SIGTERM ) { System_Daemon::stop(); } }
 
 // Spawn Deamon!
-#System_Daemon::start();
+System_Daemon::start();
 	$connected = false;
 	function mconnect() {
 		global $mongo, $connected;
